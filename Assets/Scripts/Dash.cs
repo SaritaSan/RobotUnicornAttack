@@ -15,10 +15,16 @@ public class Dash : MonoBehaviour
     private bool canDash = true;
     private bool isDashing;
     public bool IsDashing { get => isDashing; }
+    private bool dashEnable = true;
+
+    public void SetDashEnable(bool enable)
+    {
+        dashEnable = enable;
+    }
 
     public void DashAction()
     {
-        if(!isDashing && canDash)
+        if(!isDashing && canDash && dashEnable)
         {
             canDash = false;
             onDash?.Invoke();

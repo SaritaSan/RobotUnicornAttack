@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlatformInstanciate : MonoBehaviour
@@ -35,5 +36,14 @@ public class PlatformInstanciate : MonoBehaviour
             offsetPositionX += distanceBetweenPlatforms + platform.GetComponent<BoxCollider>().size.x * 0.5f;
             platform.transform.SetParent(transform);
         }
+    }
+
+    public void Restart()
+    {
+        foreach(Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        Start();
     }
 }

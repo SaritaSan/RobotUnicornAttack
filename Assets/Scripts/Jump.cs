@@ -20,20 +20,32 @@ public class Jump : MonoBehaviour
     private bool isJumping;
     private float jumpTimeCounter;
     private bool buttonPressed;
-
+    private bool canJump = true;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    public void SetCanJump(bool value)
+    {
+        canJump = value;
+    }
+
     private void RestartJump()
     {
         jumps = maxJumps;
     }
     public void StartJump()
     {
+        if(!canJump)
+        {
+            return;
+        }
+
         buttonPressed = true;
+        
         if (isGrounded || jumps > 0)
         {
             jumps--;
