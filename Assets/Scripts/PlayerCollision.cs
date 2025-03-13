@@ -26,4 +26,12 @@ public class PlayerCollision : MonoBehaviour
             }
         }
     }
+
+    private void OggerEnter(Collider other)
+    {
+        if(other.CompareTag("DeadZone"))
+        {
+            onPlayerLose?.Invoke();
+        }
+    }
 }

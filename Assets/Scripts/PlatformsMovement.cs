@@ -18,7 +18,18 @@ public class PlatformsMovement : MonoBehaviour
     private Vector3 startingPosition;
 
     private float speed;
+    private float pastSpeed;
     private Vector3 moveDistance;
+    public void SpeedUp(float speedMultipler)
+    {
+        pastSpeed = speed;
+        speed *= speedMultipler;
+    }
+
+    public void SpeedDown()
+    {
+        speed = pastSpeed;
+    }
 
     private void Start()
     {
