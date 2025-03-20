@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public void FinishGame()
     {
         onFinishGame?.Invoke();
-        Invoke("StartGame", finalSecondToRestart);
+        Invoke("Start", finalSecondToRestart);
         Invoke("RestartGame", finalSecondToRestart);
     }
 

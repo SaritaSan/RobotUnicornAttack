@@ -27,7 +27,7 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
-    private void OggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("DeadZone"))
         {
