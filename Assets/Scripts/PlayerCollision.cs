@@ -32,6 +32,7 @@ public class PlayerCollision : MonoBehaviour
         if(other.CompareTag("DeadZone"))
         {
             onPlayerLose?.Invoke();
+            SoundManager.instance.Play("dead");
         }
     }
 }
