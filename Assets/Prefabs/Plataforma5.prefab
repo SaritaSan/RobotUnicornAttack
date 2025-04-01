@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3808062561244076503}
   - component: {fileID: 6434879048775305778}
+  - component: {fileID: 394167186810867093}
   m_Layer: 0
   m_Name: Plataforma5
   m_TagString: DeadZone
@@ -54,6 +55,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.545956, y: 1, z: 9.9}
   m_Center: {x: -1.0757711, y: 0, z: 0}
+--- !u!114 &394167186810867093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193053080523934777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37ef2b00f61077409551c11185992a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4300509527106784963
 PrefabInstance:
   m_ObjectHideFlags: 0

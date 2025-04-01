@@ -5,18 +5,20 @@ using UnityEngine;
 public class PlatformInstanciate : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> platforms;
+    private List<InstaciateObject> platformPools;
     [SerializeField]
-    private List<GameObject> safePlatforms;
+    private List<InstaciateObject> safePlatformPools;
 
     [SerializeField]
     private float distanceBetweenPlatforms = 2f;
 
+    [SerializeField]
     private int initialPlatforms = 10;
 
     private float offsetPositionX = 0f;
 
     private int platformsIndex = 0;
+    
 
     public void Start()
     {
@@ -29,13 +31,13 @@ public class PlatformInstanciate : MonoBehaviour
     {
         for(int i = 0; i < amount; i++)
         {
-            List<GameObject> platformsToUse = platformsIndex < 2 ? safePlatforms : this.platforms;
+            List<InstaciateObject> platformsToUse = platformsIndex < 2 ? safePlatformPools : platformPools;
             int randomIndex = Random.Range(0, platformsToUse.Count);
             if(offsetPositionX != 0)
             {
-                offsetPositionX += platformsToUse[randomIndex].GetComponent<BoxCollider>().size.x * 0.5f;
+                offsetPositionX += platformsToUse[randomIndex].ObjectToInstantiate.GetComponent<BoxCollider>().size.x * 0.5f;
             }
-            GameObject platform = Instantiate(platformsToUse[randomIndex], Vector3.zero, Quaternion.identity);
+            GameObject platform = platformsToUse[randomIndex].CreateInstance();
             offsetPositionX += distanceBetweenPlatforms + platform.GetComponent<BoxCollider>().size.x * 0.5f;
             platform.transform.SetParent(transform);
             platform.transform.localPosition = new Vector3(offsetPositionX, 0,0);
@@ -47,7 +49,7 @@ public class PlatformInstanciate : MonoBehaviour
     {
         foreach(Transform child in transform)
         {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
         }
         Start();
     }

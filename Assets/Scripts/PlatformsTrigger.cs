@@ -9,7 +9,7 @@ public class PlatformsTrigger : MonoBehaviour
     {
         if(other.CompareTag("DeadZone"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             onPlatformTriggered?.Invoke();
         }
     }
