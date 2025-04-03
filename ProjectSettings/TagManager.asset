@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Obstacule
   - DeadZone
+  - Coin
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
