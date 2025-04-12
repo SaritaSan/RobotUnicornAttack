@@ -48,6 +48,8 @@ public class PlayerCollision : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             onCoinCollected?.Invoke();
+            SoundManager.instance.Play("money");
+
         }
     }
 }

@@ -22,7 +22,6 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
 
         audioDictionary = new Dictionary<string,AudioClip>();
         foreach(string key in audioList)
@@ -84,11 +83,13 @@ public class SoundManager : MonoBehaviour
         audioS.Play();
     }
 
-    public void StopMusic(){
+    public void StopMusic()
+    {
         musicS.Stop();
     }
 
-    public void SetMixerVolume(float volume){
+    public void SetMixerVolume(float volume)
+    {
 
         masterMixer.SetFloat("masterVolume",volume);
     }

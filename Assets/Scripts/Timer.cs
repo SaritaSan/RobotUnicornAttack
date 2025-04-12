@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     {
         currentSeconds = startSeconds;
         SetTimer();
+
     }
 
     private void SetTimer()
@@ -25,5 +26,6 @@ public class Timer : MonoBehaviour
         {
             Invoke("SetTimer", 1f);
         }
+        SoundManager.instance.Play("miau");
     }
 }
