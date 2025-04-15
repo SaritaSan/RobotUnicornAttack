@@ -3,13 +3,10 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    [SerializeField]
-    private float shakeDuration = 0.5f;
-    [SerializeField]
-    private float shakeMagnitudeX = 0.1f;
-    [SerializeField]
-    private float shakeMagnitudeY = 0.1f;
-
+    [SerializeField] private float shakeDuration = 0.5f;
+    [SerializeField] private float shakeMagnitudeX = 0.1f;
+    [SerializeField] private float shakeMagnitudeY = 0.1f;
+    [SerializeField] private float shakeSpeed = 20f;
 
     private Vector3 originalPosition;
 
@@ -20,21 +17,28 @@ public class CameraShake : MonoBehaviour
 
     public void Shake()
     {
+        StopAllCoroutines(); // Optional: stop previous shake
         StartCoroutine(ShakeCoroutine());
     }
 
     private IEnumerator ShakeCoroutine()
     {
         float elapsedTime = 0f;
-        while(elapsedTime < shakeDuration)
-        {
-            float x = Random.Range(-1f, 1f) * shakeMagnitudeX;
-            float y = Random.Range(-1f, 1f) * shakeMagnitudeY;
 
-            transform.localPosition = new Vector3(x, y, originalPosition.z);
+        // Generate random noise seed
+        float seedX = Random.value * 100f;
+        float seedY = Random.value * 100f;
+
+        while (elapsedTime < shakeDuration)
+        {
+            float time = Time.time * shakeSpeed;
+
+            float offsetX = (Mathf.PerlinNoise(seedX, time) - 0.5f) * 2f * shakeMagnitudeX;
+            float offsetY = (Mathf.PerlinNoise(seedY, time) - 0.5f) * 2f * shakeMagnitudeY;
+
+            transform.localPosition = originalPosition + new Vector3(offsetX, offsetY, 0f);
 
             elapsedTime += Time.deltaTime;
-
             yield return null;
         }
 
