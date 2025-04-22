@@ -914,6 +914,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 945512413}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: set_pitch
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onShowTimer:
     m_PersistentCalls:
       m_Calls:
@@ -8156,7 +8168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044ae6137192fcd428b10ebb39b4c2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowMotionFactor: 0.3
+  slowMotionFactor: 0.6
 --- !u!4 &1108502725
 Transform:
   m_ObjectHideFlags: 0
@@ -10746,8 +10758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a45828cd06e94e4785f06bed3d692bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseValue: 0.1
-  initialSpeedValue: 0.1
+  increaseValue: 0.01
+  initialSpeedValue: 0.5
   characterAnimator: {fileID: 1258211235}
   animatorValueName: RunSpeed
 --- !u!1001 &1911961049
